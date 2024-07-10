@@ -1,6 +1,9 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:funiture_app/features/data/models/chairs_list.dart';
 import 'package:funiture_app/features/presentation/widgets/custom_card.dart';
+import 'package:funiture_app/features/presentation/widgets/product_field.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -125,7 +128,20 @@ class HomeScreen extends StatelessWidget {
               ),
               const SizedBox(
                 height: 30,
-              )
+              ),
+              Expanded(
+                child: ListView.builder(
+                  scrollDirection: Axis.horizontal,
+                  itemCount: chair.length,
+                  itemBuilder: (context, int index) {
+                    return ProductField(
+                      image: chair[index].imagePath,
+                      name: chair[index].name,
+                      price: chair[index].price.toString(),
+                    );
+                  },
+                ),
+              ),
             ],
           ),
         ),
