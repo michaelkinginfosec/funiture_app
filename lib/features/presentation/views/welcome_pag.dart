@@ -5,9 +5,8 @@ import 'package:funiture_app/core/widgets/navigation_button.dart';
 import 'package:funiture_app/features/presentation/bloc/cubit/navigation_cubit.dart';
 import 'package:funiture_app/features/presentation/views/cart_page.dart';
 import 'package:funiture_app/features/presentation/views/home_screen.dart';
-import 'package:funiture_app/features/presentation/views/menu_page.dart';
+
 import 'package:funiture_app/features/presentation/views/profile_page.dart';
-import 'package:funiture_app/features/presentation/views/search_product.dart';
 
 class WelcomePage extends StatelessWidget {
   const WelcomePage({super.key});
@@ -20,13 +19,10 @@ class WelcomePage extends StatelessWidget {
           switch (state.selectedIndex) {
             case 0:
               return const HomeScreen();
+
             case 1:
-              return const MenuPage();
-            case 2:
-              return const SearchPage();
-            case 3:
               return const ProfilePage();
-            case 4:
+            case 2:
               return const CartPage();
             default:
               return Container();
@@ -36,11 +32,12 @@ class WelcomePage extends StatelessWidget {
       bottomNavigationBar: BlocBuilder<NavigationCubit, NavigationState>(
         builder: (context, state) {
           return BottomNavigationBar(
-            // backgroundColor: Colors.grey.shade900,
-            elevation: 0,
             currentIndex: state.selectedIndex,
-            onTap: (index) =>
-                context.read<NavigationCubit>().selectedIndex(index),
+            onTap: (value) {
+              context.read<NavigationCubit>().selectedIndex(value);
+            },
+            backgroundColor: Colors.grey.shade900,
+            elevation: 0,
             items: [
               BottomNavigationBarItem(
                 icon: state.selectedIndex == 0
@@ -56,10 +53,10 @@ class WelcomePage extends StatelessWidget {
               BottomNavigationBarItem(
                 icon: state.selectedIndex == 1
                     ? const CustomSelectedIcon(
-                        icon: CupertinoIcons.search,
+                        icon: Icons.person_2,
                       )
                     : const Icon(
-                        CupertinoIcons.search,
+                        CupertinoIcons.person_solid,
                         // color: Colors.white,
                       ),
                 label: '',
@@ -67,29 +64,18 @@ class WelcomePage extends StatelessWidget {
               BottomNavigationBarItem(
                 icon: state.selectedIndex == 2
                     ? const CustomSelectedIcon(
-                        icon: CupertinoIcons.person,
-                      )
-                    : const Icon(
-                        CupertinoIcons.person,
-                        color: Colors.white,
-                      ),
-                label: '',
-              ),
-              BottomNavigationBarItem(
-                icon: state.selectedIndex == 3
-                    ? const CustomSelectedIcon(
                         icon: CupertinoIcons.cart,
                       )
                     : const Icon(
                         CupertinoIcons.cart,
-                        color: Colors.white,
+                        // color: Colors.white,
                       ),
                 label: '',
               ),
             ],
-            // selectedItemColor: Colors
-            //     .transparent, // Makes the default white selection color transparent
-            // unselectedItemColor: Colors.white,
+            selectedItemColor: Colors
+                .white, // Makes the default white selection color transparent
+            unselectedItemColor: Colors.white,
             showSelectedLabels: false,
             showUnselectedLabels: false,
           );

@@ -9,13 +9,16 @@ class CustomSelectedIcon extends StatelessWidget {
   Widget build(BuildContext context) {
     return Card(
       elevation: 10,
-      shape: const CircleBorder(),
+      color: Colors.green,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(15),
+      ),
       child: Padding(
-        padding: const EdgeInsets.all(8.0),
+        padding: const EdgeInsets.all(10.0),
         child: Icon(
           icon,
           color: Colors.black,
-          size: 30,
+          // size: 30,
         ),
       ),
     );
