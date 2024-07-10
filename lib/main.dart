@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:funiture_app/features/presentation/views/home_screen.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(
+    const MyApp(),
+  );
 }
 
 class MyApp extends StatelessWidget {
