@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:funiture_app/features/presentation/widgets/custom_card.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -6,7 +7,7 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // backgroundColor: Colors.black,
+      backgroundColor: Colors.grey.shade900,
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.all(25.0),
@@ -19,6 +20,7 @@ class HomeScreen extends StatelessWidget {
                 style: TextStyle(
                   fontSize: 30,
                   fontWeight: FontWeight.normal,
+                  color: Colors.white,
                 ),
                 textAlign: TextAlign.left,
               ),
@@ -93,6 +95,18 @@ class HomeScreen extends StatelessWidget {
                   ],
                 ),
               ),
+              const SizedBox(
+                height: 30,
+              ),
+              const Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  CustomCard(text: "All"),
+                  CustomCard(text: "Chairs"),
+                  CustomCard(text: "Lamps"),
+                  CustomCard(text: "Clocks"),
+                ],
+              )
             ],
           ),
         ),
