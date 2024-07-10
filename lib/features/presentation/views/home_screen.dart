@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -24,39 +25,50 @@ class HomeScreen extends StatelessWidget {
                 height: 20,
               ),
               Container(
-                width: double.infinity,
+                width: 300,
                 height: 150,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(12),
-                  gradient: const LinearGradient(
-                    colors: [
-                      Color.fromARGB(255, 29, 133, 83),
-                      Color.fromARGB(255, 74, 187, 132),
-                    ],
-                  ),
-                ),
-                child: Positioned(
-                  top: 50,
-                  child: Stack(
-                    children: [
-                      Column(
-                        children: [
-                          Text(
-                            'Elegant\n white chir',
-                          ),
-                          SizedBox(
-                            height: 12,
-                          ),
-                          Text(
-                            '\$200',
-                          ),
-                        ],
+                child: Stack(
+                  clipBehavior:
+                      Clip.none, // Allow the image to extend beyond the Stack
+                  children: [
+                    Container(
+                      width: 300,
+                      height: 150,
+                      padding:
+                          EdgeInsets.only(left: 60), // Adjust padding as needed
+                      decoration: BoxDecoration(
+                        color: Colors.blue[100],
+                        border: Border.all(color: Colors.blue, width: 2),
+                        borderRadius: BorderRadius.circular(10),
                       ),
-                      Image.asset('asset/images/')
-                    ],
-                  ),
+                      child: Align(
+                        alignment: Alignment.centerLeft,
+                        child: Text(
+                          'This is some text that is placed to the right of the image. The image extends beyond the container.',
+                          style: TextStyle(fontSize: 16),
+                          textAlign: TextAlign.center,
+                        ),
+                      ),
+                    ),
+                    Positioned(
+                      left:
+                          -30, // Adjust to control how much of the image extends outside
+                      top: -25,
+                      child: Container(
+                        width: 80,
+                        height: 130,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(10),
+                          image: DecorationImage(
+                            fit: BoxFit.cover,
+                            image: AssetImage('assets/images/img6.png'),
+                          ),
+                        ),
+                      ),
+                    ),
+                  ],
                 ),
-              )
+              ),
             ],
           ),
         ),
