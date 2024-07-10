@@ -18,12 +18,12 @@ List<Chairs> chair = [
   ),
   Chairs(
     name: 'Black Chair',
-    imagePath: 'assets/images/img4.png',
+    imagePath: 'assets/images/img5.png',
     price: 200,
   ),
   Chairs(
     name: 'Gold Chair like fur',
-    imagePath: 'assets/images/img5.png',
+    imagePath: 'assets/images/img4.png',
     price: 200,
   ),
 ];
