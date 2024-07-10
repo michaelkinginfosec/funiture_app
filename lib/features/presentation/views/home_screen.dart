@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
+
 import 'package:funiture_app/features/data/models/chairs_list.dart';
 import 'package:funiture_app/features/presentation/widgets/custom_card.dart';
 import 'package:funiture_app/features/presentation/widgets/product_field.dart';
@@ -14,7 +14,7 @@ class HomeScreen extends StatelessWidget {
       backgroundColor: Colors.grey.shade900,
       body: SafeArea(
         child: Padding(
-          padding: const EdgeInsets.all(25.0),
+          padding: const EdgeInsets.symmetric(horizontal: 25),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -29,7 +29,7 @@ class HomeScreen extends StatelessWidget {
                 textAlign: TextAlign.left,
               ),
               const SizedBox(
-                height: 50,
+                height: 30,
               ),
               Container(
                 width: double.infinity,
@@ -100,7 +100,7 @@ class HomeScreen extends StatelessWidget {
                 ),
               ),
               const SizedBox(
-                height: 30,
+                height: 20,
               ),
               SingleChildScrollView(
                 scrollDirection: Axis.horizontal,
@@ -127,7 +127,7 @@ class HomeScreen extends StatelessWidget {
                 ),
               ),
               const SizedBox(
-                height: 30,
+                height: 20,
               ),
               Expanded(
                 child: ListView.builder(
@@ -145,6 +145,24 @@ class HomeScreen extends StatelessWidget {
             ],
           ),
         ),
+      ),
+      bottomNavigationBar: NavigationBar(
+        backgroundColor: Colors.transparent,
+        elevation: 0,
+        destinations: const [
+          NavigationDestination(
+            icon: Icon(CupertinoIcons.home),
+            label: 'Home',
+          ),
+          NavigationDestination(
+            icon: Icon(CupertinoIcons.home),
+            label: 'Home',
+          ),
+          NavigationDestination(
+            icon: Icon(CupertinoIcons.home),
+            label: 'Home',
+          ),
+        ],
       ),
     );
   }

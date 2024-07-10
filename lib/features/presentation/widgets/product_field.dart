@@ -20,7 +20,7 @@ class ProductField extends StatelessWidget {
         width: 250,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(20),
-          color: Colors.grey.shade800,
+          color: Colors.grey.shade700,
         ),
         child: Padding(
           padding: const EdgeInsets.only(
@@ -53,16 +53,3 @@ class ProductField extends StatelessWidget {
     );
   }
 }
-
-// import 'package:flutter/material.dart';
-
-// class ProductField extends StatelessWidget {
-//   const ProductField({super.key});
-
-//   @override
-//   Widget build(BuildContext context) {
-//     return Container(decoration: BoxDecoration(
-
-//     ),);
-//   }
-// }
