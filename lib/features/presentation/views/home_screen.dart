@@ -146,24 +146,6 @@ class HomeScreen extends StatelessWidget {
           ),
         ),
       ),
-      bottomNavigationBar: NavigationBar(
-        backgroundColor: Colors.transparent,
-        elevation: 0,
-        destinations: const [
-          NavigationDestination(
-            icon: Icon(CupertinoIcons.home),
-            label: 'Home',
-          ),
-          NavigationDestination(
-            icon: Icon(CupertinoIcons.home),
-            label: 'Home',
-          ),
-          NavigationDestination(
-            icon: Icon(CupertinoIcons.home),
-            label: 'Home',
-          ),
-        ],
-      ),
     );
   }
 }

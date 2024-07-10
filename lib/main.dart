@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:funiture_app/features/presentation/views/home_screen.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:funiture_app/features/presentation/bloc/cubit/navigation_cubit.dart';
+
+import 'package:funiture_app/features/presentation/views/welcome_pag.dart';
 
 void main() {
   runApp(
@@ -12,9 +15,12 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      home: HomeScreen(),
+    return MaterialApp(
       debugShowCheckedModeBanner: false,
+      home: BlocProvider<NavigationCubit>(
+        create: (context) => NavigationCubit(),
+        child: const WelcomePage(),
+      ),
     );
   }
 }
