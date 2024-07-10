@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:funiture_app/features/presentation/widgets/custom_card.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -98,14 +99,32 @@ class HomeScreen extends StatelessWidget {
               const SizedBox(
                 height: 30,
               ),
-              const Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  CustomCard(text: "All"),
-                  CustomCard(text: "Chairs"),
-                  CustomCard(text: "Lamps"),
-                  CustomCard(text: "Clocks"),
-                ],
+              SingleChildScrollView(
+                scrollDirection: Axis.horizontal,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    CustomCard(
+                      onTap: () {},
+                      text: "All",
+                    ),
+                    CustomCard(
+                      onTap: () {},
+                      text: "Chairs",
+                    ),
+                    CustomCard(
+                      onTap: () {},
+                      text: "Lamps",
+                    ),
+                    CustomCard(
+                      onTap: () {},
+                      text: "Clocks",
+                    ),
+                  ],
+                ),
+              ),
+              const SizedBox(
+                height: 30,
               )
             ],
           ),
