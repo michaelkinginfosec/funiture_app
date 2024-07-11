@@ -1,6 +1,4 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 
 import 'package:funiture_app/features/data/models/chairs_list.dart';
 import 'package:funiture_app/features/presentation/widgets/custom_card.dart';
