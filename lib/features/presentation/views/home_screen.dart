@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 
 import 'package:funiture_app/features/data/models/chairs_list.dart';
 import 'package:funiture_app/features/presentation/widgets/custom_card.dart';
@@ -130,16 +131,21 @@ class HomeScreen extends StatelessWidget {
                 height: 20,
               ),
               Expanded(
-                child: ListView.builder(
-                  scrollDirection: Axis.horizontal,
-                  itemCount: chair.length,
-                  itemBuilder: (context, int index) {
-                    return ProductField(
-                      image: chair[index].imagePath,
-                      name: chair[index].name,
-                      price: chair[index].price.toString(),
-                    );
+                child: GestureDetector(
+                  onTap: () {
+                    Navigator.pushNamed(context, '/productDetails');
                   },
+                  child: ListView.builder(
+                    scrollDirection: Axis.horizontal,
+                    itemCount: chair.length,
+                    itemBuilder: (context, int index) {
+                      return ProductField(
+                        image: chair[index].imagePath,
+                        name: chair[index].name,
+                        price: chair[index].price.toString(),
+                      );
+                    },
+                  ),
                 ),
               ),
             ],

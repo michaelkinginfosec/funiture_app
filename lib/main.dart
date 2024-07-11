@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:funiture_app/features/presentation/bloc/cubit/navigation_cubit.dart';
+import 'package:funiture_app/features/presentation/views/cart_page.dart';
+import 'package:funiture_app/features/presentation/views/product_details_page.dart';
 
 import 'package:funiture_app/features/presentation/views/welcome_pag.dart';
 
@@ -21,6 +23,11 @@ class MyApp extends StatelessWidget {
         create: (context) => NavigationCubit(),
         child: const WelcomePage(),
       ),
+      routes: {
+        // '/welcome': (context) => const WelcomePage(),
+        '/productDetails': (context) => const ProductDetailsPage(),
+        '/cartPage': (context) => const CartPage(),
+      },
     );
   }
 }
