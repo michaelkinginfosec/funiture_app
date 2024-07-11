@@ -1,8 +1,23 @@
 import 'package:flutter/material.dart';
-import 'package:funiture_app/core/widgets/custom_app_bar.dart';
 
-class ProductDetailsPage extends StatelessWidget {
+import 'package:funiture_app/core/widgets/custom_app_bar.dart';
+import 'package:funiture_app/features/presentation/widgets/color_containers.dart';
+
+class ProductDetailsPage extends StatefulWidget {
   const ProductDetailsPage({super.key});
+
+  @override
+  State<ProductDetailsPage> createState() => _ProductDetailsPageState();
+}
+
+class _ProductDetailsPageState extends State<ProductDetailsPage> {
+  Color? selectedColor;
+
+  void selectColor(Color color) {
+    setState(() {
+      selectedColor = color;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -38,92 +53,202 @@ class ProductDetailsPage extends StatelessWidget {
               child: Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 25),
                 child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    const Text(
-                      'Halmar Chair',
-                      style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          fontSize: 16,
-                          color: Colors.white),
+                    const Align(
+                      alignment: Alignment.centerLeft,
+                      child: Text(
+                        'Halmar Chair',
+                        style: TextStyle(
+                          fontWeight: FontWeight.w400,
+                          fontSize: 30,
+                          color: Colors.white,
+                        ),
+                      ),
+                    ),
+                    const SizedBox(
+                      height: 15,
                     ),
                     const Text(
                       'This single light pendant lights brings mid-century modern style to your home',
                       style: TextStyle(
                         color: Colors.white,
-                        fontSize: 16,
+                        fontSize: 17,
+                        fontWeight: FontWeight.w300,
                       ),
                     ),
-                    const Text(
-                      'Color',
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 16,
+                    const SizedBox(
+                      height: 15,
+                    ),
+                    const Align(
+                      alignment: Alignment.centerLeft,
+                      child: Text(
+                        'Colors',
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 30,
+                          fontWeight: FontWeight.w300,
+                        ),
+                        // textAlign: TextAlign.left,
                       ),
+                    ),
+                    const SizedBox(
+                      height: 15,
                     ),
                     Row(
                       children: [
-                        Container(
-                          height: 20,
-                          width: 20,
-                          decoration: BoxDecoration(
-                            border: Border.all(width: 2, color: Colors.white12),
-                            shape: BoxShape.circle,
-                            color: Colors.greenAccent,
+                        ColorContainer(
+                          color: const Color.fromARGB(255, 27, 50, 28),
+                          isSelected: selectedColor ==
+                              const Color.fromARGB(255, 27, 50, 28),
+                          onTap: () => selectColor(
+                              const Color.fromARGB(255, 27, 50, 28)),
+                        ),
+                        const SizedBox(
+                          width: 10,
+                        ),
+                        ColorContainer(
+                          color: const Color.fromARGB(228, 235, 228, 27),
+                          isSelected: selectedColor ==
+                              const Color.fromARGB(228, 235, 228, 27),
+                          onTap: () => selectColor(
+                              const Color.fromARGB(228, 235, 228, 27)),
+                        ),
+                        const SizedBox(
+                          width: 10,
+                        ),
+                        ColorContainer(
+                          color: const Color.fromARGB(255, 41, 32, 109),
+                          isSelected: selectedColor ==
+                              const Color.fromARGB(255, 41, 32, 109),
+                          onTap: () => selectColor(
+                              const Color.fromARGB(255, 41, 32, 109)),
+                        ),
+                        const SizedBox(
+                          width: 10,
+                        ),
+                        ColorContainer(
+                          color: const Color.fromARGB(255, 141, 160, 142),
+                          isSelected: selectedColor ==
+                              const Color.fromARGB(255, 141, 160, 142),
+                          onTap: () => selectColor(
+                            const Color.fromARGB(255, 141, 160, 142),
                           ),
                         ),
-                        Container(
-                          height: 20,
-                          width: 20,
-                          decoration: BoxDecoration(
-                            border: Border.all(width: 2, color: Colors.white12),
-                            shape: BoxShape.circle,
-                            color: Colors.greenAccent,
-                          ),
+                        const SizedBox(
+                          width: 10,
                         ),
-                        Container(
-                          height: 20,
-                          width: 20,
-                          decoration: BoxDecoration(
-                            border: Border.all(width: 2, color: Colors.white12),
-                            shape: BoxShape.circle,
-                            color: Colors.greenAccent,
-                          ),
-                        ),
-                        Container(
-                          height: 20,
-                          width: 20,
-                          decoration: BoxDecoration(
-                            border: Border.all(width: 2, color: Colors.white12),
-                            shape: BoxShape.circle,
-                            color: Colors.greenAccent,
-                          ),
-                        ),
-                        Container(
-                          height: 20,
-                          width: 20,
-                          decoration: BoxDecoration(
-                            border: Border.all(width: 2, color: Colors.white12),
-                            shape: BoxShape.circle,
-                            color: Colors.greenAccent,
+                        ColorContainer(
+                          color: const Color.fromARGB(255, 0, 0, 0),
+                          isSelected: selectedColor ==
+                              const Color.fromARGB(255, 0, 0, 0),
+                          onTap: () => selectColor(
+                            const Color.fromARGB(255, 0, 0, 0),
                           ),
                         ),
                       ],
                     ),
-                    const Text('Quantity'),
+                    const SizedBox(
+                      height: 10,
+                    ),
+                    const Align(
+                      alignment: Alignment.centerLeft,
+                      child: Text(
+                        'Quantity',
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 30,
+                          fontWeight: FontWeight.w300,
+                        ),
+                        // textAlign: TextAlign.left,
+                      ),
+                    ),
+                    const SizedBox(
+                      height: 15,
+                    ),
                     Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Row(
                           children: [
                             GestureDetector(
-                              child: const Icon(Icons.remove),
+                              child: const Icon(
+                                Icons.remove,
+                                size: 30,
+                                color: Color.fromARGB(255, 21, 64, 43),
+                              ),
                             ),
-                            const Text('1'),
+                            const SizedBox(
+                              width: 10,
+                            ),
+                            const Text(
+                              '1',
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 30,
+                                fontWeight: FontWeight.w300,
+                              ),
+                            ),
+                            const SizedBox(
+                              width: 10,
+                            ),
                             GestureDetector(
-                              child: const Icon(Icons.add),
+                              child: const Icon(
+                                Icons.add,
+                                size: 30,
+                                color: Color.fromARGB(255, 21, 64, 43),
+                              ),
                             ),
                           ],
                         ),
-                        const Text('\$299')
+                        const Text(
+                          '\$299',
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 30,
+                          ),
+                        )
+                      ],
+                    ),
+                    const SizedBox(
+                      height: 15,
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Container(
+                          height: 50,
+                          width: MediaQuery.of(context).size.width * 0.4,
+                          decoration: BoxDecoration(
+                            color: const Color.fromARGB(255, 110, 130, 120),
+                            borderRadius: BorderRadius.circular(15),
+                          ),
+                          child: const Center(
+                              child: Text(
+                            'AR View',
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 16,
+                            ),
+                          )),
+                        ),
+                        Container(
+                          height: 50,
+                          width: MediaQuery.of(context).size.width * 0.4,
+                          decoration: BoxDecoration(
+                            color: const Color.fromARGB(255, 21, 64, 43),
+                            borderRadius: BorderRadius.circular(15),
+                          ),
+                          child: const Center(
+                            child: Text(
+                              'Add to cart',
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 16,
+                              ),
+                            ),
+                          ),
+                        )
                       ],
                     )
                   ],
